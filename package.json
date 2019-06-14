@@ -1,4 +1,21 @@
 {
+  "name": "with-form-data",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "peerDependencies": {},
+  "scripts": {
+    "lint": "eslint || true",
+    "prebuild": "rimraf dist",
+    "prepare": "npm run build",
+    "test": "node test || true",
+    "start": "webpack --watch",
+    "build": "rimraf dist && webpack -p"
+  },
+  "author": "Konstantin Yemelianov",
+  "license": "MPL-2.0",
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
@@ -6,8 +23,11 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1",
+    "css-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "rimraf": "^2.6.3",
-    "webpack-cli": "^3.2.3",
-    "webpack": "^4.34.0"
+    "style-loader": "^0.23.1",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.2.3"
   }
 }

@@ -1,3 +1,5 @@
+import './assets/styles.css';
+
 const SCROLL_SPEED = 0.3;
 const CANVAS_WIDTH = 2800;
 

@@ -1,5 +1,9 @@
+import SimplexNoise from 'simplex-noise';
+
 import './assets/styles.scss';
 
+const NOISE_SPEED = 0.004; // The frequency. Smaller for flat slopes, higher for jagged spikes.
+const NOISE_AMOUNT = 5;    // The amplitude. The amount the noise affects the movement.
 const SCROLL_SPEED = 0.3;
 const CANVAS_WIDTH = 2800;
 const HEIGHT_START = 40;
@@ -14,8 +18,8 @@ const bubblesEl = document.querySelector('.bubbles');
 //         x: Math.ceil(Math.random() * CANVAS_WIDTH),
 //         y: HEIGHT_START + Math.ceil(Math.random() * (HEIGHT_FINISH - HEIGHT_START))
 //     }));
-// console.log(bubbleSpecs);
-const bubbleSpecs = [
+
+const initMask = [
     { s: .6, x: 1134, y: 45  },
     { s: .6, x: 1620, y: 271 },
     { s: .6, x: 1761, y: 372 },
@@ -51,13 +55,22 @@ const bubbleSpecs = [
     {        x: 1990, y: 75  }
 ];
 
+const bubbleSpecs = initMask
+    .map(item => ({
+        ...item,
+        s: [0.6, 0.8, 1][Math.floor(Math.random() * 3)],
+    }));
+
+console.log(bubbleSpecs);
+
 class Bubbles {
     constructor(specs) {
         this.bubbles = [];
 
         specs.forEach((spec, index) => {
             this.bubbles.push(new Bubble(index, spec));
-        })
+        });
+        //this.bubbles.push(new Bubble(0, specs[0]));
 
         requestAnimationFrame(this.update.bind(this));
     }
@@ -74,7 +87,10 @@ class Bubble {
         this.index = index;
         this.x = x;
         this.y = y;
-        //this.scale = s;
+        this.scale = s;
+        this.noiseSeedX = NOISE_SPEED;
+        this.noiseSeedY = NOISE_SPEED;
+        this.simplex = new SimplexNoise();
 
         this.el = document.createElement("div");
         this.el.className = `bubble logo${this.index + 1}`;
@@ -82,9 +98,28 @@ class Bubble {
     }
 
     update() {
-        this.x = (this.x <  -200) ? CANVAS_WIDTH : this.x - SCROLL_SPEED;
-        //this.el.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
-        this.el.style.transform = `translate(${this.x}px, ${this.y}px)`;
+        this.noiseSeedX += NOISE_SPEED;
+        this.noiseSeedY += NOISE_SPEED;
+
+        // The noise library we're using: https://github.com/josephg/noisejs
+        // let randomX = noise.simplex2(this.noiseSeedX, 0);
+        // let randomY = noise.simplex2(this.noiseSeedY, 0);
+        const randomX = this.simplex.noise2D(this.noiseSeedX, 0);
+        const randomY = this.simplex.noise2D(this.noiseSeedY, 0);
+        //console.log(randomX, randomY);
+
+        this.x -= SCROLL_SPEED;
+        this.xWithNoise = this.x + (randomX * NOISE_AMOUNT);
+        this.yWithNoise = this.y + (randomY * NOISE_AMOUNT);
+
+        //console.log(this)
+
+        if (this.x <  -200) {
+            this.x = CANVAS_WIDTH;
+        }
+
+        this.el.style.transform = `translate(${this.xWithNoise}px, ${this.yWithNoise}px) scale(${this.scale})`;
+        //this.el.style.transform = `translate(${this.x}px, ${this.y}px)`;
     }
 }
 

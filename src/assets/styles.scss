@@ -43,6 +43,9 @@ $logo-height: 152px;
 .logo5 {
     @include sprite($bower);
 }
+.logo6 {
+    @include sprite($social-media);
+}
 
 body {
     background: #E6EEF7;

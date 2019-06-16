@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
     entry: './src/index.js',
@@ -11,6 +13,23 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Logo Motions',
             template: './public/index.html'
+        }),
+        new MiniCssExtractPlugin({}),
+        new SpritesmithPlugin({
+            src: {
+                cwd: path.resolve(__dirname, 'src/assets/logos'),
+                glob: '*.png'
+            },
+            target: {
+                image: path.resolve(__dirname, 'src/assets/spritesmith-generated/sprite.png'),
+                css: path.resolve(__dirname, 'src/assets/spritesmith-generated/sprite.sass')
+            },
+            apiOptions: {
+                cssImageRef: "~sprite.png"
+            },
+            spritesmithOptions: {
+                padding: 20
+            }
         })
     ],
     module: {
@@ -24,10 +43,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                test: /\.s?css$/, use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                ]
             },
+            {
+                test: /\.png$/, use: [
+                    'file-loader?name=i/[hash].[ext]'
+                ]
+            }
         ]
-    }
+    },
+    resolve: {
+        modules: ["node_modules", "spritesmith-generated"]
+    },
 }
 ;

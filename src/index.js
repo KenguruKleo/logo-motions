@@ -1,9 +1,20 @@
-import './assets/styles.css';
+import './assets/styles.scss';
 
 const SCROLL_SPEED = 0.3;
 const CANVAS_WIDTH = 2800;
+const HEIGHT_START = 40;
+const HEIGHT_FINISH = 400;
+const LOGOS_COUNT = 20;
 
 const bubblesEl = document.querySelector('.bubbles');
+
+// const bubbleSpecs = Array.apply(null, {length: LOGOS_COUNT})
+//     .map(Number.call, Number)
+//     .map(() => ({
+//         x: Math.ceil(Math.random() * CANVAS_WIDTH),
+//         y: HEIGHT_START + Math.ceil(Math.random() * (HEIGHT_FINISH - HEIGHT_START))
+//     }));
+// console.log(bubbleSpecs);
 const bubbleSpecs = [
     { s: .6, x: 1134, y: 45  },
     { s: .6, x: 1620, y: 271 },
@@ -63,7 +74,7 @@ class Bubble {
         this.index = index;
         this.x = x;
         this.y = y;
-        this.scale = s;
+        //this.scale = s;
 
         this.el = document.createElement("div");
         this.el.className = `bubble logo${this.index + 1}`;
@@ -72,7 +83,8 @@ class Bubble {
 
     update() {
         this.x = (this.x <  -200) ? CANVAS_WIDTH : this.x - SCROLL_SPEED;
-        this.el.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
+        //this.el.style.transform = `translate(${this.x}px, ${this.y}px) scale(${this.scale})`;
+        this.el.style.transform = `translate(${this.x}px, ${this.y}px)`;
     }
 }
 

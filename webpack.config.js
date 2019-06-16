@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 const SpritesmithPlugin = require('webpack-spritesmith');
 
 module.exports = {
@@ -10,6 +11,9 @@ module.exports = {
         filename: 'index.js',
     },
     plugins: [
+        new WebpackShellPlugin({
+            onBuildStart:['node ./scripts/create-logos-scss']
+        }),
         new HtmlWebpackPlugin({
             title: 'Logo Motions',
             template: './public/index.html'

@@ -125,7 +125,7 @@ class Bubble {
         this.yWithNoise = this.y + (randomY * NOISE_AMOUNT);
 
 
-        if (this.x <  -200) {
+        if (this.x <  -RADIUS * 2) {
             this.x = CANVAS_WIDTH;
         }
 

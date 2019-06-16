@@ -1,0 +1,132 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$avast-name: 'avast'
+$avast-x: 0px
+$avast-y: 0px
+$avast-offset-x: 0px
+$avast-offset-y: 0px
+$avast-width: 150px
+$avast-height: 150px
+$avast-total-width: 490px
+$avast-total-height: 320px
+$avast-image: '~sprite.png'
+$avast: (0px, 0px, 0px, 0px, 150px, 150px, 490px, 320px, '~sprite.png', 'avast', )
+$awards-name: 'awards'
+$awards-x: 170px
+$awards-y: 0px
+$awards-offset-x: -170px
+$awards-offset-y: 0px
+$awards-width: 150px
+$awards-height: 150px
+$awards-total-width: 490px
+$awards-total-height: 320px
+$awards-image: '~sprite.png'
+$awards: (170px, 0px, -170px, 0px, 150px, 150px, 490px, 320px, '~sprite.png', 'awards', )
+$bower-name: 'bower'
+$bower-x: 0px
+$bower-y: 170px
+$bower-offset-x: 0px
+$bower-offset-y: -170px
+$bower-width: 150px
+$bower-height: 150px
+$bower-total-width: 490px
+$bower-total-height: 320px
+$bower-image: '~sprite.png'
+$bower: (0px, 170px, 0px, -170px, 150px, 150px, 490px, 320px, '~sprite.png', 'bower', )
+$logo1-name: 'logo1'
+$logo1-x: 170px
+$logo1-y: 170px
+$logo1-offset-x: -170px
+$logo1-offset-y: -170px
+$logo1-width: 150px
+$logo1-height: 150px
+$logo1-total-width: 490px
+$logo1-total-height: 320px
+$logo1-image: '~sprite.png'
+$logo1: (170px, 170px, -170px, -170px, 150px, 150px, 490px, 320px, '~sprite.png', 'logo1', )
+$nasa-name: 'nasa'
+$nasa-x: 340px
+$nasa-y: 0px
+$nasa-offset-x: -340px
+$nasa-offset-y: 0px
+$nasa-width: 150px
+$nasa-height: 150px
+$nasa-total-width: 490px
+$nasa-total-height: 320px
+$nasa-image: '~sprite.png'
+$nasa: (340px, 0px, -340px, 0px, 150px, 150px, 490px, 320px, '~sprite.png', 'nasa', )
+$social-media-name: 'social-media'
+$social-media-x: 340px
+$social-media-y: 170px
+$social-media-offset-x: -340px
+$social-media-offset-y: -170px
+$social-media-width: 150px
+$social-media-height: 150px
+$social-media-total-width: 490px
+$social-media-total-height: 320px
+$social-media-image: '~sprite.png'
+$social-media: (340px, 170px, -340px, -170px, 150px, 150px, 490px, 320px, '~sprite.png', 'social-media', )
+$spritesheet-width: 490px
+$spritesheet-height: 320px
+$spritesheet-image: '~sprite.png'
+$spritesheet-sprites: ($avast, $awards, $bower, $logo1, $nasa, $social-media, )
+$spritesheet: (490px, 320px, '~sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

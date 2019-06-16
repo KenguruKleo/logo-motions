@@ -4,7 +4,7 @@ const generateSpec = params => {
         HEIGHT_START = 0,
         HEIGHT_FINISH = 350,
         LOGOS_COUNT = 43,
-        RADIUS = 75,
+        RADIUS = 76,
         INITIAL_PADDING = 5,
         PADDING_INCREMENT = 2,
     } = params;

@@ -15,7 +15,8 @@ fs.readdir(directoryPath, (err, files) => {
         .filter(file => (/.*\.png$/).test(file.fileName))
         .map((file, index) => (
 `.logo${index + 1} {
-    @include sprite($${file.fileNameWithoutExt});
+    background-position-x: nth($${file.fileNameWithoutExt}, 3) * $ratio;
+    background-position-y: nth($${file.fileNameWithoutExt}, 4) * $ratio;
 }`
         ))
         .join('\n');

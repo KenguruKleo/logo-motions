@@ -1,129 +1,172 @@
 .logo1 {
-    @include sprite($logo-1);
+    background-position-x: nth($logo-1, 3) * $ratio;
+    background-position-y: nth($logo-1, 4) * $ratio;
 }
 .logo2 {
-    @include sprite($logo-10);
+    background-position-x: nth($logo-10, 3) * $ratio;
+    background-position-y: nth($logo-10, 4) * $ratio;
 }
 .logo3 {
-    @include sprite($logo-11);
+    background-position-x: nth($logo-11, 3) * $ratio;
+    background-position-y: nth($logo-11, 4) * $ratio;
 }
 .logo4 {
-    @include sprite($logo-12);
+    background-position-x: nth($logo-12, 3) * $ratio;
+    background-position-y: nth($logo-12, 4) * $ratio;
 }
 .logo5 {
-    @include sprite($logo-13);
+    background-position-x: nth($logo-13, 3) * $ratio;
+    background-position-y: nth($logo-13, 4) * $ratio;
 }
 .logo6 {
-    @include sprite($logo-14);
+    background-position-x: nth($logo-14, 3) * $ratio;
+    background-position-y: nth($logo-14, 4) * $ratio;
 }
 .logo7 {
-    @include sprite($logo-15);
+    background-position-x: nth($logo-15, 3) * $ratio;
+    background-position-y: nth($logo-15, 4) * $ratio;
 }
 .logo8 {
-    @include sprite($logo-16);
+    background-position-x: nth($logo-16, 3) * $ratio;
+    background-position-y: nth($logo-16, 4) * $ratio;
 }
 .logo9 {
-    @include sprite($logo-17);
+    background-position-x: nth($logo-17, 3) * $ratio;
+    background-position-y: nth($logo-17, 4) * $ratio;
 }
 .logo10 {
-    @include sprite($logo-18);
+    background-position-x: nth($logo-18, 3) * $ratio;
+    background-position-y: nth($logo-18, 4) * $ratio;
 }
 .logo11 {
-    @include sprite($logo-19);
+    background-position-x: nth($logo-19, 3) * $ratio;
+    background-position-y: nth($logo-19, 4) * $ratio;
 }
 .logo12 {
-    @include sprite($logo-2);
+    background-position-x: nth($logo-2, 3) * $ratio;
+    background-position-y: nth($logo-2, 4) * $ratio;
 }
 .logo13 {
-    @include sprite($logo-20);
+    background-position-x: nth($logo-20, 3) * $ratio;
+    background-position-y: nth($logo-20, 4) * $ratio;
 }
 .logo14 {
-    @include sprite($logo-21);
+    background-position-x: nth($logo-21, 3) * $ratio;
+    background-position-y: nth($logo-21, 4) * $ratio;
 }
 .logo15 {
-    @include sprite($logo-22);
+    background-position-x: nth($logo-22, 3) * $ratio;
+    background-position-y: nth($logo-22, 4) * $ratio;
 }
 .logo16 {
-    @include sprite($logo-23);
+    background-position-x: nth($logo-23, 3) * $ratio;
+    background-position-y: nth($logo-23, 4) * $ratio;
 }
 .logo17 {
-    @include sprite($logo-24);
+    background-position-x: nth($logo-24, 3) * $ratio;
+    background-position-y: nth($logo-24, 4) * $ratio;
 }
 .logo18 {
-    @include sprite($logo-25);
+    background-position-x: nth($logo-25, 3) * $ratio;
+    background-position-y: nth($logo-25, 4) * $ratio;
 }
 .logo19 {
-    @include sprite($logo-26);
+    background-position-x: nth($logo-26, 3) * $ratio;
+    background-position-y: nth($logo-26, 4) * $ratio;
 }
 .logo20 {
-    @include sprite($logo-27);
+    background-position-x: nth($logo-27, 3) * $ratio;
+    background-position-y: nth($logo-27, 4) * $ratio;
 }
 .logo21 {
-    @include sprite($logo-28);
+    background-position-x: nth($logo-28, 3) * $ratio;
+    background-position-y: nth($logo-28, 4) * $ratio;
 }
 .logo22 {
-    @include sprite($logo-29);
+    background-position-x: nth($logo-29, 3) * $ratio;
+    background-position-y: nth($logo-29, 4) * $ratio;
 }
 .logo23 {
-    @include sprite($logo-3);
+    background-position-x: nth($logo-3, 3) * $ratio;
+    background-position-y: nth($logo-3, 4) * $ratio;
 }
 .logo24 {
-    @include sprite($logo-30);
+    background-position-x: nth($logo-30, 3) * $ratio;
+    background-position-y: nth($logo-30, 4) * $ratio;
 }
 .logo25 {
-    @include sprite($logo-31);
+    background-position-x: nth($logo-31, 3) * $ratio;
+    background-position-y: nth($logo-31, 4) * $ratio;
 }
 .logo26 {
-    @include sprite($logo-32);
+    background-position-x: nth($logo-32, 3) * $ratio;
+    background-position-y: nth($logo-32, 4) * $ratio;
 }
 .logo27 {
-    @include sprite($logo-33);
+    background-position-x: nth($logo-33, 3) * $ratio;
+    background-position-y: nth($logo-33, 4) * $ratio;
 }
 .logo28 {
-    @include sprite($logo-34);
+    background-position-x: nth($logo-34, 3) * $ratio;
+    background-position-y: nth($logo-34, 4) * $ratio;
 }
 .logo29 {
-    @include sprite($logo-35);
+    background-position-x: nth($logo-35, 3) * $ratio;
+    background-position-y: nth($logo-35, 4) * $ratio;
 }
 .logo30 {
-    @include sprite($logo-36);
+    background-position-x: nth($logo-36, 3) * $ratio;
+    background-position-y: nth($logo-36, 4) * $ratio;
 }
 .logo31 {
-    @include sprite($logo-37);
+    background-position-x: nth($logo-37, 3) * $ratio;
+    background-position-y: nth($logo-37, 4) * $ratio;
 }
 .logo32 {
-    @include sprite($logo-38);
+    background-position-x: nth($logo-38, 3) * $ratio;
+    background-position-y: nth($logo-38, 4) * $ratio;
 }
 .logo33 {
-    @include sprite($logo-39);
+    background-position-x: nth($logo-39, 3) * $ratio;
+    background-position-y: nth($logo-39, 4) * $ratio;
 }
 .logo34 {
-    @include sprite($logo-4);
+    background-position-x: nth($logo-4, 3) * $ratio;
+    background-position-y: nth($logo-4, 4) * $ratio;
 }
 .logo35 {
-    @include sprite($logo-40);
+    background-position-x: nth($logo-40, 3) * $ratio;
+    background-position-y: nth($logo-40, 4) * $ratio;
 }
 .logo36 {
-    @include sprite($logo-41);
+    background-position-x: nth($logo-41, 3) * $ratio;
+    background-position-y: nth($logo-41, 4) * $ratio;
 }
 .logo37 {
-    @include sprite($logo-42);
+    background-position-x: nth($logo-42, 3) * $ratio;
+    background-position-y: nth($logo-42, 4) * $ratio;
 }
 .logo38 {
-    @include sprite($logo-43);
+    background-position-x: nth($logo-43, 3) * $ratio;
+    background-position-y: nth($logo-43, 4) * $ratio;
 }
 .logo39 {
-    @include sprite($logo-5);
+    background-position-x: nth($logo-5, 3) * $ratio;
+    background-position-y: nth($logo-5, 4) * $ratio;
 }
 .logo40 {
-    @include sprite($logo-6);
+    background-position-x: nth($logo-6, 3) * $ratio;
+    background-position-y: nth($logo-6, 4) * $ratio;
 }
 .logo41 {
-    @include sprite($logo-7);
+    background-position-x: nth($logo-7, 3) * $ratio;
+    background-position-y: nth($logo-7, 4) * $ratio;
 }
 .logo42 {
-    @include sprite($logo-8);
+    background-position-x: nth($logo-8, 3) * $ratio;
+    background-position-y: nth($logo-8, 4) * $ratio;
 }
 .logo43 {
-    @include sprite($logo-9);
+    background-position-x: nth($logo-9, 3) * $ratio;
+    background-position-y: nth($logo-9, 4) * $ratio;
 }

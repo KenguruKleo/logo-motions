@@ -16,7 +16,7 @@ fs.readdir(directoryPath, (err, files) => {
         .forEach(file => {
             console.log(file);
             sharp(file.fullPath)
-                .resize(150, 150)
+                .resize(152, 152)
                 .toFile(path.join(targetDirectoryPath, 'logos', file.fileName));
 
         })

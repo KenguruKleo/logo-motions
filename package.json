@@ -11,8 +11,9 @@
     "prebuild": "rimraf dist",
     "prepare": "npm run build",
     "test": "node test || true",
-    "start": "webpack --watch --mode=development",
-    "build": "rimraf dist && webpack -p"
+    "build:dev": "webpack --watch --mode=development",
+    "build": "rimraf dist && webpack -p",
+    "start": "node ./scripts/server.js"
   },
   "author": "Konstantin Yemelianov",
   "license": "MPL-2.0",
@@ -24,6 +25,7 @@
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.1",
     "css-loader": "^3.0.0",
+    "express": "^4.17.1",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",

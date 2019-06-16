@@ -103,8 +103,8 @@ class Bubble {
         this.x = x;
         this.y = y;
         this.scale = s;
-        this.noiseSeedX = NOISE_SPEED;
-        this.noiseSeedY = NOISE_SPEED;
+        this.noiseSeedX = Math.floor(Math.random() * 64000);
+        this.noiseSeedY = Math.floor(Math.random() * 64000);
         this.simplexX = new SimplexNoise();
         this.simplexY = new SimplexNoise();
 

@@ -11,10 +11,12 @@ const generateSpec = params => {
 
     const initBubbleSpecs = Array.apply(null, {length: LOGOS_COUNT})
         .map(Number.call, Number)
-        .map(() => ({}));
+        .map(() => ({
+            scale: [0.6, 0.8, 1][Math.floor(Math.random() * 3)],
+        }));
 
     const getCandidate = initCircle => {
-        const scale = [0.6, 0.8, 1][Math.floor(Math.random() * 3)];
+        const scale = initCircle.scale;
         const radius = RADIUS * scale;
         return {
             ...initCircle,

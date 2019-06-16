@@ -7,8 +7,8 @@ const directoryPath = path.join(__dirname, '../raw-logos');
 const targetDirectoryPath = path.join(__dirname, '../src');
 
 const CANVAS_WIDTH = 2800;
-const HEIGHT_START = 38;
-const HEIGHT_FINISH = 385;
+const HEIGHT_START = 40;
+const HEIGHT_FINISH = 400;
 const LOGOS_COUNT = 43;
 const RADIUS = 76;
 const INITIAL_PADDING = 5;

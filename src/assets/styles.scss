@@ -1,4 +1,5 @@
 @import "spritesmith-generated/sprite";
+@import "logos.scss";
 
 $logo-width: 152px;
 $logo-height: 152px;
@@ -25,26 +26,6 @@ $logo-height: 152px;
     //background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9332/stripe-logo-bubbles-spritesheet.png);
     //background-size: 1076px 1076px;
     //background-color: gold;
-}
-
-// .logo1 { background-position:   0      0; }
-.logo1 {
-    @include sprite($logo1);
-}
-.logo2 {
-    @include sprite($nasa);
-}
-.logo3 {
-    @include sprite($awards);
-}
-.logo4 {
-    @include sprite($avast);
-}
-.logo5 {
-    @include sprite($bower);
-}
-.logo6 {
-    @include sprite($social-media);
 }
 
 body {

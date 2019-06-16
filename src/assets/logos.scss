@@ -1,3 +1,129 @@
 .logo1 {
-  @include sprite($logo-1);
+    @include sprite($logo-1);
+}
+.logo2 {
+    @include sprite($logo-10);
+}
+.logo3 {
+    @include sprite($logo-11);
+}
+.logo4 {
+    @include sprite($logo-12);
+}
+.logo5 {
+    @include sprite($logo-13);
+}
+.logo6 {
+    @include sprite($logo-14);
+}
+.logo7 {
+    @include sprite($logo-15);
+}
+.logo8 {
+    @include sprite($logo-16);
+}
+.logo9 {
+    @include sprite($logo-17);
+}
+.logo10 {
+    @include sprite($logo-18);
+}
+.logo11 {
+    @include sprite($logo-19);
+}
+.logo12 {
+    @include sprite($logo-2);
+}
+.logo13 {
+    @include sprite($logo-20);
+}
+.logo14 {
+    @include sprite($logo-21);
+}
+.logo15 {
+    @include sprite($logo-22);
+}
+.logo16 {
+    @include sprite($logo-23);
+}
+.logo17 {
+    @include sprite($logo-24);
+}
+.logo18 {
+    @include sprite($logo-25);
+}
+.logo19 {
+    @include sprite($logo-26);
+}
+.logo20 {
+    @include sprite($logo-27);
+}
+.logo21 {
+    @include sprite($logo-28);
+}
+.logo22 {
+    @include sprite($logo-29);
+}
+.logo23 {
+    @include sprite($logo-3);
+}
+.logo24 {
+    @include sprite($logo-30);
+}
+.logo25 {
+    @include sprite($logo-31);
+}
+.logo26 {
+    @include sprite($logo-32);
+}
+.logo27 {
+    @include sprite($logo-33);
+}
+.logo28 {
+    @include sprite($logo-34);
+}
+.logo29 {
+    @include sprite($logo-35);
+}
+.logo30 {
+    @include sprite($logo-36);
+}
+.logo31 {
+    @include sprite($logo-37);
+}
+.logo32 {
+    @include sprite($logo-38);
+}
+.logo33 {
+    @include sprite($logo-39);
+}
+.logo34 {
+    @include sprite($logo-4);
+}
+.logo35 {
+    @include sprite($logo-40);
+}
+.logo36 {
+    @include sprite($logo-41);
+}
+.logo37 {
+    @include sprite($logo-42);
+}
+.logo38 {
+    @include sprite($logo-43);
+}
+.logo39 {
+    @include sprite($logo-5);
+}
+.logo40 {
+    @include sprite($logo-6);
+}
+.logo41 {
+    @include sprite($logo-7);
+}
+.logo42 {
+    @include sprite($logo-8);
+}
+.logo43 {
+    @include sprite($logo-9);
 }

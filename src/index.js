@@ -7,10 +7,10 @@ const NOISE_AMOUNT = 5;    // The amplitude. The amount the noise affects the mo
 const SCROLL_SPEED = 0.3;
 const CANVAS_WIDTH = 2800;
 const HEIGHT_START = 0;
-const HEIGHT_FINISH = 300;
+const HEIGHT_FINISH = 350;
 const LOGOS_COUNT = 43;
 const RADIUS = 75;
-const PADDING = 15;
+const PADDING = 5;
 const PADDING_INCREMENT = 2;
 
 const bubblesEl = document.querySelector('.bubbles');

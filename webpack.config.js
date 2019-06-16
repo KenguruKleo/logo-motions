@@ -12,7 +12,10 @@ module.exports = {
     },
     plugins: [
         new WebpackShellPlugin({
-            onBuildStart:['node ./scripts/create-logos-scss']
+            onBuildStart:[
+                'node ./scripts/create-logos-scss.js',
+                'node ./scripts/create-bubbles-spec'
+            ]
         }),
         new HtmlWebpackPlugin({
             title: 'Logo Motions',

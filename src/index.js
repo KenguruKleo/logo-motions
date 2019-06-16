@@ -3,7 +3,7 @@ import {
     RADIUS,
     CANVAS_WIDTH,
     bubbleSpecs,
-} from './bubbles-spec';
+} from './spec';
 
 import './assets/styles.scss';
 

@@ -81,4 +81,21 @@ const generateSpec = params => {
     }
 };
 
-module.exports = generateSpec;
+const spec = spec => console.log(`found spec with padding: ${spec.padding}, left tries: ${spec.protect}`);
+
+const getBestSpec = params => {
+    let bestSpec = generateSpec(params);
+    spec(bestSpec);
+
+    for (let i = 0; i < 1000; i++) {
+        const nextSpec = generateSpec(params);
+        if (nextSpec.padding > bestSpec.padding) {
+            bestSpec = nextSpec;
+            spec(bestSpec);
+        }
+    }
+
+    return bestSpec;
+};
+
+module.exports = getBestSpec;

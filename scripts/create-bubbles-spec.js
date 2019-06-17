@@ -16,8 +16,11 @@ const {
 const logosDirectoryPath = path.join(__dirname, '../src/assets/logos');
 const targetDirectoryPath = path.join(__dirname, '../src');
 
-const getCandidateSpec = ({ LOGOS_COUNT }) => {
-    return generateSpec({
+const generate = async () => {
+    const files = await getLogos(logosDirectoryPath);
+    const LOGOS_COUNT = files.length;
+
+    const bestSpec = generateSpec({
         CANVAS_WIDTH,
         HEIGHT_START,
         HEIGHT_FINISH,
@@ -26,24 +29,6 @@ const getCandidateSpec = ({ LOGOS_COUNT }) => {
         INITIAL_PADDING,
         PADDING_INCREMENT,
     });
-};
-
-const generate = async () => {
-    const files = await getLogos(logosDirectoryPath);
-    const LOGOS_COUNT = files.length;
-
-    const options = { LOGOS_COUNT };
-
-    let bestSpec = getCandidateSpec(options);
-    console.log(bestSpec.padding, bestSpec.protect);
-
-    for (let i = 0; i < 1000; i++) {
-        const nextSpec = getCandidateSpec(options);
-        if (nextSpec.padding > bestSpec.padding) {
-            bestSpec = nextSpec;
-            console.log(bestSpec.padding, bestSpec.protect);
-        }
-    }
 
     const bubbleSpecs = bestSpec.bubbleSpecs;
 

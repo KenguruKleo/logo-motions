@@ -18,7 +18,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'Logo Motions',
-            template: './public/index.html'
+            template: './public/index.html',
+            hash: true,
         }),
         new MiniCssExtractPlugin({}),
         new SpritesmithPlugin({

@@ -21,4 +21,5 @@ getLogos(directoryPath)
                     .toFile(path.join(targetDirectoryPath, 'logos', file.fileName));
 
             })
-    });
+    })
+    .catch(err => console.error(err));

@@ -92,7 +92,7 @@ const getBestSpec = params => {
     let bestSpec = generateSpec(params);
     spec(bestSpec);
 
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 10000; i++) {
         const nextSpec = generateSpec({
             ...params,
             INITIAL_PADDING: bestSpec.padding,

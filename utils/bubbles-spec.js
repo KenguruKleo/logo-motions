@@ -86,13 +86,32 @@ const generateSpec = params => {
     }
 };
 
-const spec = spec => console.log(`found spec with padding: ${spec.padding}, left tries: ${spec.protect}`);
+const specLog = spec => console.log(`found spec with padding: ${spec.padding}, left tries: ${spec.protect}`);
 
 const getBestSpec = params => {
     let bestSpec = generateSpec(params);
-    spec(bestSpec);
+    specLog(bestSpec);
 
-    for (let i = 0; i < 10000; i++) {
+    const P = ["\\", "|", "/", "-"];
+    let x = 0;
+
+    const maxAttempt = 10000;
+
+    for (let i = 0; i <= maxAttempt; i++) {
+
+        // process.stdout.write("Hello, World");
+        // process.stdout.clearLine();
+        // process.stdout.cursorTo(0);
+        // process.stdout.write("\n");
+
+        if (i % 10 === 0) {
+            //process.stdout.write("\r" + P[x++]);
+            process.stdout.clearLine();
+            process.stdout.cursorTo(0);
+            process.stdout.write(`Attempt: ${i} of ${maxAttempt} ${P[x++]}`);
+            x &= 3;
+        }
+
         const nextSpec = generateSpec({
             ...params,
             INITIAL_PADDING: bestSpec.padding,
@@ -102,9 +121,11 @@ const getBestSpec = params => {
         }
         if (nextSpec.padding > bestSpec.padding) {
             bestSpec = nextSpec;
-            spec(bestSpec);
+            process.stdout.clearLine();
+            process.stdout.cursorTo(0);
+            specLog(bestSpec);
         } else if (nextSpec.padding === bestSpec.padding) {
-            spec(bestSpec);
+            specLog(bestSpec);
         }
     }
 

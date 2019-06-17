@@ -12,7 +12,7 @@
     "prepare": "npm run build",
     "test": "node test || true",
     "build:dev": "webpack --watch --mode=development",
-    "build": "rimraf dist && webpack -p",
+    "build": "rimraf dist && node ./scripts/create-bubbles-spec && webpack -p",
     "start": "node ./scripts/server.js"
   },
   "author": "Konstantin Yemelianov",

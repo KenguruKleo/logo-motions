@@ -30,12 +30,13 @@ const generate = async () => {
         PADDING_INCREMENT,
     });
 
-    const bubbleSpecs = bestSpec.bubbleSpecs;
+    const { bubbleSpecs, padding } = bestSpec.bubbleSpecs;
 
     const spec = [];
 
     spec.push(`const CANVAS_WIDTH = ${CANVAS_WIDTH};`);
     spec.push(`const RADIUS = ${RADIUS};`);
+    spec.push(`const padding = ${ padding};`);
     spec.push('');
 
     spec.push(`const bubbleSpecs = [`);
@@ -49,6 +50,7 @@ const generate = async () => {
 export {
     CANVAS_WIDTH,
     RADIUS,
+    padding,
     bubbleSpecs,
 }
 `);

@@ -7,6 +7,7 @@ const generateSpec = params => {
         RADIUS = 76,
         INITIAL_PADDING = 5,
         PADDING_INCREMENT = 2,
+        MAX_PADDING = 50,
     } = params;
 
     const initBubbleSpecs = Array.apply(null, {length: LOGOS_COUNT})
@@ -57,7 +58,7 @@ const generateSpec = params => {
 
     let padding = INITIAL_PADDING;
     let bubbleSpecs = getBubbles({ initBubbleSpecs, padding });
-    let protect = 30;
+    let protect = MAX_PADDING;
 
     while(protect > 0) {
         protect -= 1;
@@ -70,6 +71,10 @@ const generateSpec = params => {
         } else {
             break;
         }
+    }
+
+    if (!bubbleSpecs) {
+        return false;
     }
 
     return {
@@ -88,7 +93,13 @@ const getBestSpec = params => {
     spec(bestSpec);
 
     for (let i = 0; i < 1000; i++) {
-        const nextSpec = generateSpec(params);
+        const nextSpec = generateSpec({
+            ...params,
+            INITIAL_PADDING: bestSpec.padding,
+        });
+        if (!nextSpec) {
+            continue;
+        }
         if (nextSpec.padding > bestSpec.padding) {
             bestSpec = nextSpec;
             spec(bestSpec);

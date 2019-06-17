@@ -1,18 +1,20 @@
 const path = require('path');
 const fs = require('fs');
-
+const config = require('../config/sizes');
 const generateSpec = require('../utils/bubbles-spec');
 
-const directoryPath = path.join(__dirname, '../raw-logos');
-const targetDirectoryPath = path.join(__dirname, '../src');
+const {
+    CANVAS_WIDTH,
+    HEIGHT_START,
+    HEIGHT_FINISH,
+    LOGOS_COUNT,
+    RADIUS,
+    INITIAL_PADDING,
+    PADDING_INCREMENT,
+} = config;
 
-const CANVAS_WIDTH = 2800;
-const HEIGHT_START = 40;
-const HEIGHT_FINISH = 400;
-const LOGOS_COUNT = 43;
-const RADIUS = 76;
-const INITIAL_PADDING = 5;
-const PADDING_INCREMENT = 2;
+const logosDirectoryPath = path.join(__dirname, '../src/assets/logos');
+const targetDirectoryPath = path.join(__dirname, '../src');
 
 const bubbleSpecs = generateSpec({
     CANVAS_WIDTH,

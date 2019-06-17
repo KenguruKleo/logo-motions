@@ -1,6 +1,6 @@
-@import "variables";
 @import "spritesmith-generated/sprite";
-@import "logos.scss";
+@import "logos-variables";
+@import "logos";
 
 .bubble-wrap {
     overflow: hidden;

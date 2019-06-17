@@ -60,7 +60,7 @@ class Bubble {
 
         const overlap = RADIUS * 2;
         if (this.x <  -overlap) {
-            this.x = CANVAS_WIDTH - overlap;
+            this.x = CANVAS_WIDTH;
         }
 
         this.el.style.transform = `translate(${this.xWithNoise}px, ${this.yWithNoise}px) scale(${this.scale})`;

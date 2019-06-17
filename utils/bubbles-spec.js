@@ -48,7 +48,6 @@ const generateSpec = params => {
                 initBubbles.shift();
             }
         }
-        console.log(padding, protect);
 
         if (initBubbles.length){
             return false;
@@ -78,6 +77,7 @@ const generateSpec = params => {
         RADIUS,
         bubbleSpecs,
         padding,
+        protect,
     }
 };
 

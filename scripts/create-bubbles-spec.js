@@ -1,13 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 const config = require('../config/sizes');
+const getLogos = require('../utils/get-logos');
 const generateSpec = require('../utils/bubbles-spec');
 
 const {
     CANVAS_WIDTH,
     HEIGHT_START,
     HEIGHT_FINISH,
-    LOGOS_COUNT,
     RADIUS,
     INITIAL_PADDING,
     PADDING_INCREMENT,
@@ -16,32 +16,51 @@ const {
 const logosDirectoryPath = path.join(__dirname, '../src/assets/logos');
 const targetDirectoryPath = path.join(__dirname, '../src');
 
-const bubbleSpecs = generateSpec({
-    CANVAS_WIDTH,
-    HEIGHT_START,
-    HEIGHT_FINISH,
-    LOGOS_COUNT,
-    RADIUS,
-    INITIAL_PADDING,
-    PADDING_INCREMENT,
-}).bubbleSpecs;
+const getCandidateSpec = ({ LOGOS_COUNT }) => {
+    return generateSpec({
+        CANVAS_WIDTH,
+        HEIGHT_START,
+        HEIGHT_FINISH,
+        LOGOS_COUNT,
+        RADIUS,
+        INITIAL_PADDING,
+        PADDING_INCREMENT,
+    });
+};
 
-console.log(bubbleSpecs);
+const generate = async () => {
+    const files = await getLogos(logosDirectoryPath);
+    const LOGOS_COUNT = files.length;
 
-const spec = [];
+    const options = { LOGOS_COUNT };
 
-spec.push(`const CANVAS_WIDTH = ${CANVAS_WIDTH};`);
-spec.push(`const RADIUS = ${RADIUS};`);
-spec.push('');
+    let bestSpec = getCandidateSpec(options);
+    console.log(bestSpec.padding, bestSpec.protect);
 
-spec.push(`const bubbleSpecs = [`);
-bubbleSpecs.forEach(({ x, y, s }) => {
-    spec.push(`    { x: ${x}, y: ${y}, s: ${s} },`);
-});
-spec.push('];');
+    for (let i = 0; i < 1000; i++) {
+        const nextSpec = getCandidateSpec(options);
+        if (nextSpec.padding > bestSpec.padding) {
+            bestSpec = nextSpec;
+            console.log(bestSpec.padding, bestSpec.protect);
+        }
+    }
 
-spec.push('');
-spec.push(`
+    const bubbleSpecs = bestSpec.bubbleSpecs;
+
+    const spec = [];
+
+    spec.push(`const CANVAS_WIDTH = ${CANVAS_WIDTH};`);
+    spec.push(`const RADIUS = ${RADIUS};`);
+    spec.push('');
+
+    spec.push(`const bubbleSpecs = [`);
+    bubbleSpecs.forEach(({ x, y, s }) => {
+        spec.push(`    { x: ${x}, y: ${y}, s: ${s} },`);
+    });
+    spec.push('];');
+
+    spec.push('');
+    spec.push(`
 export {
     CANVAS_WIDTH,
     RADIUS,
@@ -49,4 +68,7 @@ export {
 }
 `);
 
-fs.writeFileSync(path.join(targetDirectoryPath, 'spec.js'), spec.join('\n'));
+    fs.writeFileSync(path.join(targetDirectoryPath, 'spec.js'), spec.join('\n'));
+};
+
+generate();

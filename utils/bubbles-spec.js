@@ -99,16 +99,8 @@ const getBestSpec = params => {
 
     for (let i = 0; i <= maxAttempt; i++) {
 
-        // process.stdout.write("Hello, World");
-        // process.stdout.clearLine();
-        // process.stdout.cursorTo(0);
-        // process.stdout.write("\n");
-
         if (i % 10 === 0) {
-            //process.stdout.write("\r" + P[x++]);
-            process.stdout.clearLine();
-            process.stdout.cursorTo(0);
-            process.stdout.write(`Attempt: ${i} of ${maxAttempt} ${P[x++]}`);
+            process.stdout.write("\r" + P[x++]);
             x &= 3;
         }
 
@@ -121,8 +113,7 @@ const getBestSpec = params => {
         }
         if (nextSpec.padding > bestSpec.padding) {
             bestSpec = nextSpec;
-            process.stdout.clearLine();
-            process.stdout.cursorTo(0);
+            process.stdout.write("\r");
             specLog(bestSpec);
         } else if (nextSpec.padding === bestSpec.padding) {
             specLog(bestSpec);

@@ -2,7 +2,9 @@ const path = require('path');
 const fs = require('fs');
 
 const getLogos = (directoryPath, options = {}) => {
-    const {} = options;
+    const {
+        fileExt = 'png',
+    } = options;
 
     return new Promise((resolve, reject) => {
         fs.readdir(directoryPath, (err, files) => {
@@ -17,7 +19,7 @@ const getLogos = (directoryPath, options = {}) => {
                     fileNameWithoutExt: file.match(/(.*)\..*$/)[1],
                 }))
                 .filter(file => !fs.statSync(file.fullPath).isDirectory())
-                .filter(file => (/.*\.png$/).test(file.fileName));
+                .filter(file => new RegExp(`.*\.${fileExt}$`).test(file.fileName));
             resolve(res);
         });
     });

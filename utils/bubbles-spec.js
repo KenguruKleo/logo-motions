@@ -92,18 +92,9 @@ const getBestSpec = params => {
     let bestSpec = generateSpec(params);
     specLog(bestSpec);
 
-    const P = ["\\", "|", "/", "-"];
-    let x = 0;
-
     const maxAttempt = 10000;
 
     for (let i = 0; i <= maxAttempt; i++) {
-
-        if (i % 10 === 0) {
-            process.stdout.write("\r" + P[x++]);
-            x &= 3;
-        }
-
         const nextSpec = generateSpec({
             ...params,
             INITIAL_PADDING: bestSpec.padding,
@@ -113,7 +104,6 @@ const getBestSpec = params => {
         }
         if (nextSpec.padding > bestSpec.padding) {
             bestSpec = nextSpec;
-            process.stdout.write("\r");
             specLog(bestSpec);
         } else if (nextSpec.padding === bestSpec.padding) {
             specLog(bestSpec);

@@ -30,7 +30,7 @@ const generate = async () => {
         PADDING_INCREMENT,
     });
 
-    const { bubbleSpecs, padding } = bestSpec.bubbleSpecs;
+    const { bubbleSpecs, padding } = bestSpec;
 
     const spec = [];
 

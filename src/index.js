@@ -58,9 +58,9 @@ class Bubble {
         this.xWithNoise = this.x + (randomX * NOISE_AMOUNT);
         this.yWithNoise = this.y + (randomY * NOISE_AMOUNT);
 
-
-        if (this.x <  -RADIUS * 2) {
-            this.x = CANVAS_WIDTH;
+        const overlap = RADIUS * 2;
+        if (this.x <  -overlap) {
+            this.x = CANVAS_WIDTH - overlap;
         }
 
         this.el.style.transform = `translate(${this.xWithNoise}px, ${this.yWithNoise}px) scale(${this.scale})`;

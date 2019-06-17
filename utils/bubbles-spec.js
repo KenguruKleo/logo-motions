@@ -92,6 +92,8 @@ const getBestSpec = params => {
         if (nextSpec.padding > bestSpec.padding) {
             bestSpec = nextSpec;
             spec(bestSpec);
+        } else if (nextSpec.padding === bestSpec.padding) {
+            spec(bestSpec);
         }
     }
 

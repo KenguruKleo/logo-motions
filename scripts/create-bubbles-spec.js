@@ -36,7 +36,7 @@ const generate = async () => {
 
     spec.push(`const CANVAS_WIDTH = ${CANVAS_WIDTH};`);
     spec.push(`const RADIUS = ${RADIUS};`);
-    spec.push(`const padding = ${padding};`);
+    spec.push(`const PADDING = ${padding};`);
     spec.push('');
 
     spec.push(`const bubbleSpecs = [`);

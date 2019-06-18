@@ -66,7 +66,7 @@ class Bubble {
         this.xWithNoise = this.x + (randomX * NOISE_AMOUNT);
         this.yWithNoise = this.y + (randomY * NOISE_AMOUNT);
 
-        const overlap = (RADIUS * 2) + (PADDING / 2);
+        const overlap = RADIUS * 2;
         if (this.x <  -overlap) {
             this.x = CANVAS_WIDTH;
         }

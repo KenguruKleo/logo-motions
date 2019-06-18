@@ -1,6 +1,6 @@
 const CANVAS_WIDTH = 2800;
 const RADIUS = 76;
-const padding = 42;
+const PADDING = 42;
 
 const bubbleSpecs = [
     { x: 2164, y: 267, s: 0.6 },
@@ -52,6 +52,6 @@ const bubbleSpecs = [
 export {
     CANVAS_WIDTH,
     RADIUS,
-    padding,
+    PADDING,
     bubbleSpecs,
 }

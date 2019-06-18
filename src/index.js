@@ -1,6 +1,7 @@
 import SimplexNoise from 'simplex-noise';
 import {
     RADIUS,
+    PADDING,
     CANVAS_WIDTH,
     bubbleSpecs,
 } from './spec';
@@ -9,7 +10,14 @@ import './assets/styles.scss';
 
 const NOISE_SPEED = 0.004; // The frequency. Smaller for flat slopes, higher for jagged spikes.
 const NOISE_AMOUNT = 5;    // The amplitude. The amount the noise affects the movement.
-const SCROLL_SPEED = 0.3;
+
+// SCROLL_SPEED = screenWidth * A + B
+const step1 = { w: 1680, s: 0.3 };
+const step2 = { w: 400, s: 0.5 };
+const A = (step1.s - step2.s) / (step1.w - step2.w);
+const B = step1.s - step1.w * A;
+
+const SCROLL_SPEED = window.screen.width * A + B;
 
 const bubblesEl = document.querySelector('.bubbles');
 
@@ -58,7 +66,7 @@ class Bubble {
         this.xWithNoise = this.x + (randomX * NOISE_AMOUNT);
         this.yWithNoise = this.y + (randomY * NOISE_AMOUNT);
 
-        const overlap = RADIUS * 2;
+        const overlap = (RADIUS * 2) + (PADDING / 2);
         if (this.x <  -overlap) {
             this.x = CANVAS_WIDTH;
         }

@@ -8,12 +8,13 @@ const generateSpec = params => {
         INITIAL_PADDING = 5,
         PADDING_INCREMENT = 2,
         MAX_PADDING = 50,
+        getScale = () => [0.6, 0.8, 1][Math.floor(Math.random() * 3)]
     } = params;
 
     const initBubbleSpecs = Array.apply(null, {length: LOGOS_COUNT})
         .map(Number.call, Number)
-        .map(() => ({
-            scale: [0.6, 0.8, 1][Math.floor(Math.random() * 3)],
+        .map((_, index) => ({
+            scale: getScale(index),
         }));
 
     const getCandidate = initCircle => {

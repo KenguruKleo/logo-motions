@@ -1,5 +1,5 @@
 {
-  "name": "with-form-data",
+  "name": "logo-motions",
   "version": "1.0.2",
   "main": "dist/index.js",
   "files": [
@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint || true",
     "prebuild": "rimraf dist",
-    "prepare": "npm run build",
+    "prepare": "echo 'prepare'",
     "test": "node test || true",
     "build:dev": "webpack --watch --mode=development",
     "build": "rimraf dist && node ./scripts/create-bubbles-spec && webpack -p",

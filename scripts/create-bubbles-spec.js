@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const config = require('../config/sizes');
 const getLogos = require('../utils/get-logos');
-const generateSpec = require('../utils/bubbles-spec');
+const generateSpec = require('fit-canvas-with-circles');
 
 const {
     CANVAS_WIDTH,
